@@ -1,6 +1,6 @@
 ﻿# Table of contents
 
-* [Hi6 로봇제어기 기능설명서 - 프로그램 예약 실행](README.md)
+* [${cont_model} 로봇제어기 기능설명서 - 프로그램 예약 실행](README.md)
 * [1. 개요](1-intro/README.md)
   * [1.1 외부선택에 의한 방식](1-intro/1-1-external-selection.md)
   * [1.2 내부설정에 의한 방식](1-intro/1-2-internal-setting.md)

@@ -6,47 +6,47 @@
 	},
 	{
 		"link": "1-intro/README.md",
-		"char_ofs": 266,
-		"byte_ofs": 530
+		"char_ofs": 276,
+		"byte_ofs": 540
 	},
 	{
 		"link": "1-intro/1-1-external-selection.md",
-		"char_ofs": 433,
-		"byte_ofs": 937
+		"char_ofs": 443,
+		"byte_ofs": 947
 	},
 	{
 		"link": "1-intro/1-2-internal-setting.md",
-		"char_ofs": 706,
-		"byte_ofs": 1567
+		"char_ofs": 716,
+		"byte_ofs": 1577
 	},
 	{
 		"link": "2-user-interface/README.md",
-		"char_ofs": 1238,
-		"byte_ofs": 2812
+		"char_ofs": 1248,
+		"byte_ofs": 2822
 	},
 	{
 		"link": "2-user-interface/2-1-resesrved-program-execution-setting.md",
-		"char_ofs": 1249,
-		"byte_ofs": 2833
+		"char_ofs": 1259,
+		"byte_ofs": 2843
 	},
 	{
 		"link": "2-user-interface/2-2-program-execution-register.md",
-		"char_ofs": 3411,
-		"byte_ofs": 7447
+		"char_ofs": 3421,
+		"byte_ofs": 7457
 	},
 	{
 		"link": "2-user-interface/2-3-program-register-status.md",
-		"char_ofs": 3876,
-		"byte_ofs": 8489
+		"char_ofs": 3886,
+		"byte_ofs": 8499
 	},
 	{
 		"link": "3-playback/README.md",
-		"char_ofs": 4283,
-		"byte_ofs": 9347
+		"char_ofs": 4293,
+		"byte_ofs": 9357
 	},
 	{
 		"link": "4-error-warning/README.md",
-		"char_ofs": 4698,
-		"byte_ofs": 10310
+		"char_ofs": 4708,
+		"byte_ofs": 10320
 	}
 ]
