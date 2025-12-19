@@ -31,22 +31,22 @@
 	},
 	{
 		"link": "2-user-interface/2-2-program-execution-register.md",
-		"char_ofs": 3421,
-		"byte_ofs": 7457
+		"char_ofs": 3395,
+		"byte_ofs": 7431
 	},
 	{
 		"link": "2-user-interface/2-3-program-register-status.md",
-		"char_ofs": 3886,
-		"byte_ofs": 8499
+		"char_ofs": 3856,
+		"byte_ofs": 8469
 	},
 	{
 		"link": "3-playback/README.md",
-		"char_ofs": 4293,
-		"byte_ofs": 9357
+		"char_ofs": 4261,
+		"byte_ofs": 9325
 	},
 	{
 		"link": "4-error-warning/README.md",
-		"char_ofs": 4708,
-		"byte_ofs": 10320
+		"char_ofs": 4672,
+		"byte_ofs": 10284
 	}
 ]
