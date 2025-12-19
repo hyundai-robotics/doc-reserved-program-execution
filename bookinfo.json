@@ -1,9 +1,9 @@
 {
-    "langCode": "ko",
-    "series": "현대로봇 Hi6 제어기",
-    "title": "기능설명서 - 프로그램 예약 실행",
-    "publisher": "현대로보틱스",
-    "tocTitle": "목차",
+    "langCode": "en",
+    "series": "Hyundai Robot Hi6 Controller",
+    "title": "Function manual - Reserved program execution",
+    "publisher": "HD Hyundai Robotics",
+    "tocTitle": "Table of Contents",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
     "variables": {
         "cont_model": "Hi6"

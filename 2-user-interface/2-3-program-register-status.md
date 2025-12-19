@@ -1,14 +1,14 @@
-﻿# 2.3 프로그램 예약상태 외부확인
+# 2.3 External Check of Program Schedule Status
 
-- 외부선택 방식  
-외부에서 입력된 예약 프로그램 번호를 “프로그램 ACK”신호와 동기하여 “프로그램 에코 Bit”신호를 외부로 출력합니다. [**시스템 > 제어 파라미터 > 입출력 신호 설정 > 출력 신호 할당**]에서 신호를 할당합니다.  
+- External Selection  
+Outputs the “Program Echo Bit” signal synchronized with the “Program ACK” signal for externally input reserved program numbers. Assign the signal under [**System > Control Parameters > I/O Signal Settings > Output Signal Assignment**].
  ![](../_assets/image6.png)
 
-    - 선택된 프로그램 번호를 "프로그램 에코 Bit"에 할당된 신호로 출력
-    - "프로그램 ACK"에 할당된 신호를 200ms동안 출력
+    - Outputs the selected program number to the signal assigned to the “Program Echo Bit”
+    - Outputs the signal assigned to “Program ACK” for 200ms
 
   
 
-- 내부설정 방식  
-  [**시스템 > 제어 파라미터 > 프로그램 예약 실행**]에서 예약된 프로그램에 할당한 출력 신호에 점멸 신호가 출력됩니다.
-    - 출력신호의 확인 방법은 2.1장의 “출력신호”의 설명을 참조바랍니다.
+- Internal Setting  
+In [**System > Control Parameters > Program Scheduled Execution**], a blinking signal is output to the output signal assigned to the reserved program.
+    - For the method of checking output signals, refer to the description of “Output signals” in section 2.1.

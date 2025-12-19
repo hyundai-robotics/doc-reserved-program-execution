@@ -1,164 +1,169 @@
-﻿# ${cont_model} 로봇제어기 기능설명서 - 프로그램 예약 실행
+﻿# ${cont_model} Robot Controller Functional Manual - Program Scheduled Execution
 
 {% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
+The information provided in this product manual is the property of Hyundai Robotics.
 
-현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
+Without Hyundai Robotics' written consent, no part of this manual may be reproduced, redistributed, provided to a third party, or used for other purposes.
 
 
 
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
+This manual is subject to change without prior notice.
 
 
 
 **Copyright ⓒ 2023 by Hyundai Robotics**
 {% endhint %}
-# 1. 개요
+# 1. Overview
 
-프로그램 예약 실행 기능이란 외부의 입력신호에 의해 실행할 프로그램을 예약하고, 예약된 순서대로 프로그램을 실행하는 기능입니다. 
+The Program Scheduled Execution function allows you to schedule programs that will be executed by external input signals and run the scheduled programs in order.
 
-현대 로봇 제어기는 두 가지 방식의 프로그램 예약 실행 기능을 지원합니다. 각 방식에 대한 특징을 숙지한 후 원하는 작업 환경에 따라 사용하십시오. 
-# 1.1 외부선택에 의한 방식
+Hyundai robot controllers support two methods of Program Scheduled Execution. Please understand the characteristics of each method and use them according to your desired operating environment.
+# 1.1 External Selection Method
 
-컨베이어를 따라 서로 다른 작업물이 연속하여 진입하는 경우 각 작업물을 외부 프로그램 선택 방법에 의해 프로그램을 선택한 후, 이를 프로그램 예약 실행 레지스터에 등록하여 예약된 프로그램을 순서대로 실행하는 기능입니다. 
+When different workpieces enter consecutively along a conveyor, you can select the program for each workpiece via an external program selection method and register it in the Program Scheduled Execution Register so the scheduled programs are executed in order.
 
 ![](../_assets/image1.png)
 
-위 그림은 A번 프로그램을 실행하는 동안 B번과 C번 프로그램이 프로그램 예약 실행 레지스터에 순서대로 등록된 상태를 나타내며 D번 프로그램은 아직 등록되지 않은 상태를 나타냅니다.# 1.2 내부설정에 의한 방식
+The figure above shows that while program A is running, programs B and C have been registered in the Program Scheduled Execution Register in order, and program D has not yet been registered.
+# 1.2 Internal Setting Method
 
-각 작업대상의 작업물에 대해 프로그램된 경우 작업대 위의 버튼이 눌려지면 이 입력에 해당되는 프로그램 번호를 프로그램 예약 실행레지스터에 등록한 후, 이 순서에 따라 프로그램을 실행합니다.
+If a program has been assigned for each work target, pressing the button on the workbench registers the corresponding program number in the Program Scheduled Execution Register, and programs are executed in that order when started.
 
 
 ![](../_assets/image2.png)
 
-위의 그림과 같이 3개의 작업대에 각각 다른 작업물이 놓인 경우 작업대 1번, 2번, 3번 위의 버튼이 입력될 때 이에 해당하는 1번, 2번, 3번 프로그램이 프로그램 예약 실행 레지스터에 등록됩니다.
+If different workpieces are placed on three workstations as shown above, pressing the buttons on workstations 1, 2, and 3 registers programs 1, 2, and 3 respectively in the Program Scheduled Execution Register.
 
-조작자는 작업물 1번이 준비되면 작업대 입력버튼을 누른 후, 조작패널의 기동버튼을 누르면 프로그램 1번이 실행되기 시작합니다. 1번 프로그램이 실행되는 동안 작업물 2번을 준비하고 작업대 입력버튼을 누르면 프로그램 2번은 프로그램 예약 레지스터에서 대기합니다. 프로그램 1번의 실행이 완료된 후, 프로그램 예약 레지스터에 대기중이던 프로그램 2번이 실행됩니다. 만일 1번 프로그램이 실행 완료된 상태에서 2번 작업대 입력버튼을 누르면, 기동버튼을 다시 눌러야만 합니다.
-# 2. 시스템 설정# 2.1 프로그램 예약 실행 환경 설정
-프로그램 예약 실행 기능을 위한 환경은 [**시스템 > 제어 파라미터 > 프로그램 예약 실행**]에서 설정합니다.
+When the operator prepares workpiece 1 and presses the workstation input button and then the start button on the operation panel, program 1 begins execution. While program 1 is running, if the operator prepares workpiece 2 and presses the workstation input button, program 2 waits in the Program Scheduled Register. After program 1 finishes, program 2 that was waiting in the Program Scheduled Register executes. If the input button for workstation 2 is pressed after program 1 has already completed, the start button must be pressed again.
+# 2. System Settings
+# 2.1 Program Scheduled Execution Preferences
+The environment for the Program Scheduled Execution feature is configured under [**System > Control Parameters > Program Scheduled Execution**].
 
 ![](../_assets/image3.png)
 
-- 적용 레지스터 개수
+- Applied register count
 
-    - 무효  
-    프로그램 예약 실행 기능을 사용하지 않습니다.
+    - Disabled  
+    The Program Scheduled Execution feature is not used.
 
-    - 20개  
-    프로그램 예약 실행 레지스터를 20개 마련합니다. 20개를 초과하여 프로그램을 미리 예약하려면 E1047 에러가 발생합니다.
+    - 20  
+    Prepare 20 registers for the Program Scheduled Execution. If you try to schedule more than 20 programs, an E1047 error will occur.
 
-    - 1개  
-    프로그램 예약 실행 레지스터를 1개를 마련합니다. 1개의 프로그램만 예약할 수 있습니다. 따라서 서로 다른 작업물이 연속하여 2개 이상 진입하는 공법에서 미리 예약하고자 할 때는 사용할 수 없습니다.  
+    - 1  
+    Prepare 1 register for Program Scheduled Execution. Only one program can be scheduled. Therefore, it cannot be used in production lines where more than one different workpiece enters consecutively and pre-scheduling is required.  
 
   
 
-- 프로그램 입력방식
+- Program input method
 
-    - 외부선택  
-    [**시스템 > 제어 파라미터 > 입출력 신호 설정 > 입력 신호 할당**]에서 “프로그램 선택 Bit”로 입력된 프로그램을 프로그램 예약 실행 레지스터에 등록합니다.
+    - External Selection  
+    Registers the program assigned as the “Program Select Bit” in [**System > Control Parameters > I/O Signal Settings > Input Signal Assignment**] into the Program Scheduled Execution Register.
 
         ![](../_assets/image4.png)
   
-        -	위 그림에서 프로그램 Strobe 입력신호를 할당하십시오.
-        -	외부에서 입력되는 프로그램 선택 신호를 Binary 또는 Discrete로 수신할지 선택하는 Binary/Discrete(OFF->Binary) 입력신호도 할당하여 수신방법에 따라 사용하십시오.
-        -	수신방법은 프로그램 Strobe 신호가 Low->High로 변경되면 Binary/Discrete(OFF->Binary)에 따라 프로그램 선택 Bit를 읽고 원하는 프로그램 번호를 생성합니다. 프로그램 선택 Bit 입력신호는 반드시 프로그램 Strobe 입력신호보다 200msec 먼저 활성화 시켜야 합니다.
-        -	외부선택 모드를 사용할 때는 [**시스템 > 사용자 환경**]에서 “프로그램 스트로브신호 사용”을 “유효”로 설정해야 합니다.
+        - Assign the program Strobe input signal in the figure above.
+        - Assign a Binary/Discrete (OFF->Binary) input signal to select whether to receive externally input program selection signals as Binary or Discrete, and use according to the receiving method.
+        - The reception method reads the Program Select Bit when the program Strobe signal changes from Low to High and generates the desired program number according to Binary/Discrete(OFF->Binary). The Program Select Bit input signal must be activated at least 200ms before the program Strobe input signal.
+        - When using the External Selection mode, set “Use Program Strobe Signal” to “Enabled” under [**System > User Preferences**].
 
-    - 내부설정  
-    입력 신호와 그에 해당하는 프로그램 번호를 미리 사용자가 지정해 두고 입력신호가 ON 되면 지정한 프로그램 번호를 레지스터에 등록합니다.
-        -	총 7개의 서로 다른 작업장치를 제공합니다.
-        -	“동일 프로그램 입력시 처리”메뉴는 내부설정일 때만 사용합니다.
-
-  
-
-- 동일 프로그램 입력 시 처리
-프로그램 입력방식이 “내부설정”에서 프로그램 예약 실행 레지스터에 프로그램 번호를 예약할 때 이미 레지스터에 동일 프로그램이 존재하는 경우에 예약 결정을 처리하는 기능입니다.
-
-    - 삭제  
-    레지스터에 예약된 프로그램 번호를 삭제하는 조건입니다. 레지스터에 예약된 동일한 프로그램 번호를 찾아서 삭제합니다. “예약된 프로그램(No:xxx) 삭제됩니다” 알림이 화면에 표시됩니다.
-
-    - 금지  
-    레지스터에 이미 동일한 프로그램이 예약되어 있으면 등록하지 않습니다.  “프로그램(No:xxx) 예약이 금지됩니다” 알림이 화면에 표시됩니다.
-
-    - 허용  
-    레지스터가 비어 있으면 등록합니다.
-
-
-- 입력신호  
-    - I/O보드에 장착된 입력커넥터의 각각의 포트에 대한 신호를 설정합니다.
-
-    - 입력신호 할당에서 외부기동과 외부정지 신호 할당이 안되어 있을 때 작업대 입력버튼을 누르면 외부기동이나 외부정지 명령으로도 사용할 수 있습니다.
-        -   외부기동 : 프로그램 번호 예약과 동시에 외부기동을 실행
-        -   외부정지 : 현재 실행되는 프로그램을 예약하면 외부정지 실행
+    - Internal Setting  
+    The user preassigns input signals and their corresponding program numbers, and when the input signal turns ON, the specified program number is registered in the register.
+        - Provides up to 7 different work devices.
+        - The “Handle duplicate program input” menu is only used when in Internal Setting mode.
 
   
 
-- 출력신호
-    - I/O보드에 장착된 출력커넥터의 각각의 포트에 대한 신호를 설정합니다.
-    - 출력신호에 램프가 연결된 경우 프로그램 번호가 레지스터에 예약되어 실행되기까지 램프에 다음의 변화가 발생합니다.
-        -	프로그램 번호가 예약되지 않은 경우 	→ 램프소등
-        -	프로그램 번호가 예약된 경우		→ 램프점멸
-        -	예약된 프로그램 번호가 실행중인 경우 	→ 램프점등
-        -	예약된 프로그램 번호가 실행완료 된 경우	→ 램프소등
+- Handling duplicate program inputs
+When the Program input method is set to “Internal Setting” and a program number identical to one already in the Program Scheduled Execution Register is input, this setting determines how to handle the duplicate registration.
+
+    - Delete  
+    Deletes the registered program number in the register. It searches for the identical program number in the register and deletes it. A notice “Reserved program (No:xxx) will be deleted” is displayed on the screen.
+
+    - Prohibit  
+    Does not register if an identical program is already reserved in the register. A notice “Program (No:xxx) reservation is prohibited” is displayed on the screen.
+
+    - Allow  
+    Registers if the register is empty.
+
+
+- Input signals
+    - Configure the signal for each port of the input connectors mounted on the I/O board.
+
+    - When external start and external stop signals are not assigned in Input Signal Assignment, pressing the workstation input button can be used as external start or external stop commands.
+        -   External start : execute the external start simultaneously with registering a program number.
+        -   External stop : executes external stop when scheduling the currently running program.
 
   
 
-- 프로그램
-해당 작업대의 작업 프로그램을 설정합니다.
-프로그램 번호가 할당되지 않으면 “예약 프로그램 번호가 할당되지 않았습니다”알림이 화면에 표시됩니다.# 2.2. 프로그램 예약 실행 레지스터
+- Output signals
+    - Configure the signal for each port of the output connectors mounted on the I/O board.
+    - When a lamp is connected to the output signal, the lamp changes as follows from the time the program number is scheduled in the register until it is executed.
+        - When the program number is not scheduled → Lamp off
+        - When the program number is scheduled → Lamp blinking
+        - When the scheduled program number is running → Lamp on
+        - When the scheduled program number has completed → Lamp off
 
-프로그램 예약 실행 레지스터는 예약된 프로그램을 확인, 변경, 삽입 또는 삭제할 수 있는 기능입니다. 프로그램 예약 실행 설정에서 적용 레지스터 개수가 '20개' 또는 '1개'인 경우에 사용할 수 있습니다. panel 선택 창에서 [**프로그램 예약**]을 선택합니다.
+  
+
+- Program
+Set the operation program for the corresponding workstation.
+If a program number is not assigned, a notice “Reserved program number is not assigned” is displayed on the screen.
+# 2.2 Program Scheduled Execution Register
+
+The Program Scheduled Execution Register allows you to confirm, change, insert, or delete scheduled programs. This can be used when the Applied register count in Program Scheduled Execution settings is set to '20' or '1'. Select [**Program Schedule**] from the panel selection window.
 
 ![](../_assets/image5.png)
 
-- 편집  
-현재 위치의 예약된 프로그램을 변경할 때는 편집”버튼을 클릭한 후 원하는 프로그램 번호를 입력하면 됩니다.
+- Edit  
+To change the scheduled program at the current position, click the “Edit” button and enter the desired program number.
 
-- 삽입  
-  “삽입”버튼을 클릭한 후 원하는 예약 프로그램 번호를 입력하면 현재위치 다음에 새로운 프로그램이 예약 됩니다.
+- Insert  
+Click the “Insert” button and enter the desired reserved program number to reserve a new program after the current position.
 
-- 삭제  
-  삭제하고자 하는 예약 프로그램 번호에 위치시키고 “삭제”버튼을 클릭하여 해당 프로그램 번호를 레지스터에서 삭제할 수 있습니다.
+- Delete  
+Position on the reserved program number you want to delete and click the “Delete” button to remove the program number from the register.
 
   
 
-[**참고사항**]
-- 원격모드에서는 실행할 수 없습니다.# 2.3 프로그램 예약상태 외부확인
+[**Note**]
+- Cannot be executed in Remote Mode.
+# 2.3 External Check of Program Schedule Status
 
-- 외부선택 방식  
-외부에서 입력된 예약 프로그램 번호를 “프로그램 ACK”신호와 동기하여 “프로그램 에코 Bit”신호를 외부로 출력합니다. [**시스템 > 제어 파라미터 > 입출력 신호 설정 > 출력 신호 할당**]에서 신호를 할당합니다.  
+- External Selection  
+Outputs the “Program Echo Bit” signal synchronized with the “Program ACK” signal for externally input reserved program numbers. Assign the signal under [**System > Control Parameters > I/O Signal Settings > Output Signal Assignment**].
  ![](../_assets/image6.png)
 
-    - 선택된 프로그램 번호를 "프로그램 에코 Bit"에 할당된 신호로 출력
-    - "프로그램 ACK"에 할당된 신호를 200ms동안 출력
+    - Outputs the selected program number to the signal assigned to the “Program Echo Bit”
+    - Outputs the signal assigned to “Program ACK” for 200ms
 
   
 
-- 내부설정 방식  
-  [**시스템 > 제어 파라미터 > 프로그램 예약 실행**]에서 예약된 프로그램에 할당한 출력 신호에 점멸 신호가 출력됩니다.
-    - 출력신호의 확인 방법은 2.1장의 “출력신호”의 설명을 참조바랍니다.
-# 3. 재생
-- 스텝 0에서 실행  
-기동버튼 입력 시 로봇 제어기는 프로그램 예약 실행 레지스터의 첫 번째 프로그램을 실행합니다. 프로그램 END까지 실행한 후 프로그램 예약 실행 레지스터에 등록된 다음 프로그램을 실행합니다.
+- Internal Setting  
+In [**System > Control Parameters > Program Scheduled Execution**], a blinking signal is output to the output signal assigned to the reserved program.
+    - For the method of checking output signals, refer to the description of “Output signals” in section 2.1.
+# 3. Playback
+- Execute from step 0  
+When the start button is pressed, the robot controller executes the first program in the Program Scheduled Execution Register. After executing until the program END, it executes the next program registered in the Program Scheduled Execution Register.
 
-- 스텝 중간에서 실행  
-기동버튼 입력 시 선택된 프로그램의 선택된 명령문부터 실행합니다. 이 프로그램의 실행을 마친 후, 프로그램 예약 실행 레지스터에 등록된 프로그램을 실행합니다.
+- Execute from a mid step  
+When the start button is pressed, execution begins from the selected statement of the selected program. After completing the execution of this program, it executes the programs registered in the Program Scheduled Execution Register.
 
-- 예약된 프로그램이 없을 때 실행  
-레지스터에 등록된 프로그램이 존재하지 않는 경우, 기동버튼을 입력하면 다음의 화면과 같이 프로그램 예약 실행 레지스터에 프로그램이 등록되기까지 계속 대기합니다. 여기서 프로그램이 등록되면 그와 동시에 프로그램을 실행합니다.  
- ![](../_assets/image7.png)# 4. 에러/경고
-- 에러  
-    |분류|내용|
+- Execute when no scheduled program exists  
+If no programs are registered in the register, when pressing the start button, it will wait until a program is registered in the Program Scheduled Execution Register as shown in the figure below. When a program is registered, it executes it immediately.
+ ![](../_assets/image7.png)
+# 4. Errors / Warnings
+- Errors  
+    |Category|Details|
     |-|-|
-    |메시지|E1047 레지스터가 20개를 초과했음|
-    |원인|설정/제어 파라미터/프로그램 예약 실행에 설정된 개수 20개를 초과하여 예약하려고 합니다.|
-    |조치|서비스/모니터링/프로그램 예약 실행에서 예약 상태를 확인하십시오.|  
+    |Message|E1047 The register exceeded 20|
+    |Cause|Attempting to reserve more than the configured number of 20 under Settings/Control Parameters/Program Scheduled Execution.|
+    |Action|Check the reservation status in Service/Monitoring/Program Scheduled Execution.|  
 
   
 
-- 경고
-    |분류|내용|
+- Warnings
+    |Category|Details|
     |-|-|
-    |메시지|W28302 프로그램 예약 등록은 원격모드에서만 가능합니다.|
-    |원인|프로그램 예약 등록 모드가 원격모드가 아닙니다.|
-    |조치|조작모드를 확인하십시오.|  
+    |Message|W28302 Program reservation registration is available only in Remote Mode.|
+    |Cause|The program reservation registration mode is not Remote Mode.|
+    |Action|Check the operation mode.|  

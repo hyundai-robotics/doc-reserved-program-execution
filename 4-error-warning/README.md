@@ -1,16 +1,16 @@
-﻿# 4. 에러/경고
-- 에러  
-    |분류|내용|
+# 4. Errors / Warnings
+- Errors  
+    |Category|Details|
     |-|-|
-    |메시지|E1047 레지스터가 20개를 초과했음|
-    |원인|설정/제어 파라미터/프로그램 예약 실행에 설정된 개수 20개를 초과하여 예약하려고 합니다.|
-    |조치|서비스/모니터링/프로그램 예약 실행에서 예약 상태를 확인하십시오.|  
+    |Message|E1047 The register exceeded 20|
+    |Cause|Attempting to reserve more than the configured number of 20 under Settings/Control Parameters/Program Scheduled Execution.|
+    |Action|Check the reservation status in Service/Monitoring/Program Scheduled Execution.|  
 
   
 
-- 경고
-    |분류|내용|
+- Warnings
+    |Category|Details|
     |-|-|
-    |메시지|W28302 프로그램 예약 등록은 원격모드에서만 가능합니다.|
-    |원인|프로그램 예약 등록 모드가 원격모드가 아닙니다.|
-    |조치|조작모드를 확인하십시오.|  
+    |Message|W28302 Program reservation registration is available only in Remote Mode.|
+    |Cause|The program reservation registration mode is not Remote Mode.|
+    |Action|Check the operation mode.|  

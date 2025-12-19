@@ -1,10 +1,10 @@
-﻿# 1.2 내부설정에 의한 방식
+# 1.2 Internal Setting Method
 
-각 작업대상의 작업물에 대해 프로그램된 경우 작업대 위의 버튼이 눌려지면 이 입력에 해당되는 프로그램 번호를 프로그램 예약 실행레지스터에 등록한 후, 이 순서에 따라 프로그램을 실행합니다.
+If a program has been assigned for each work target, pressing the button on the workbench registers the corresponding program number in the Program Scheduled Execution Register, and programs are executed in that order when started.
 
 
 ![](../_assets/image2.png)
 
-위의 그림과 같이 3개의 작업대에 각각 다른 작업물이 놓인 경우 작업대 1번, 2번, 3번 위의 버튼이 입력될 때 이에 해당하는 1번, 2번, 3번 프로그램이 프로그램 예약 실행 레지스터에 등록됩니다.
+If different workpieces are placed on three workstations as shown above, pressing the buttons on workstations 1, 2, and 3 registers programs 1, 2, and 3 respectively in the Program Scheduled Execution Register.
 
-조작자는 작업물 1번이 준비되면 작업대 입력버튼을 누른 후, 조작패널의 기동버튼을 누르면 프로그램 1번이 실행되기 시작합니다. 1번 프로그램이 실행되는 동안 작업물 2번을 준비하고 작업대 입력버튼을 누르면 프로그램 2번은 프로그램 예약 레지스터에서 대기합니다. 프로그램 1번의 실행이 완료된 후, 프로그램 예약 레지스터에 대기중이던 프로그램 2번이 실행됩니다. 만일 1번 프로그램이 실행 완료된 상태에서 2번 작업대 입력버튼을 누르면, 기동버튼을 다시 눌러야만 합니다.
+When the operator prepares workpiece 1 and presses the workstation input button and then the start button on the operation panel, program 1 begins execution. While program 1 is running, if the operator prepares workpiece 2 and presses the workstation input button, program 2 waits in the Program Scheduled Register. After program 1 finishes, program 2 that was waiting in the Program Scheduled Register executes. If the input button for workstation 2 is pressed after program 1 has already completed, the start button must be pressed again.

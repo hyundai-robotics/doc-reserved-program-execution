@@ -1,72 +1,72 @@
-﻿# 2.1 프로그램 예약 실행 환경 설정
-프로그램 예약 실행 기능을 위한 환경은 [**시스템 > 제어 파라미터 > 프로그램 예약 실행**]에서 설정합니다.
+# 2.1 Program Scheduled Execution Preferences
+The environment for the Program Scheduled Execution feature is configured under [**System > Control Parameters > Program Scheduled Execution**].
 
 ![](../_assets/image3.png)
 
-- 적용 레지스터 개수
+- Applied register count
 
-    - 무효  
-    프로그램 예약 실행 기능을 사용하지 않습니다.
+    - Disabled  
+    The Program Scheduled Execution feature is not used.
 
-    - 20개  
-    프로그램 예약 실행 레지스터를 20개 마련합니다. 20개를 초과하여 프로그램을 미리 예약하려면 E1047 에러가 발생합니다.
+    - 20  
+    Prepare 20 registers for the Program Scheduled Execution. If you try to schedule more than 20 programs, an E1047 error will occur.
 
-    - 1개  
-    프로그램 예약 실행 레지스터를 1개를 마련합니다. 1개의 프로그램만 예약할 수 있습니다. 따라서 서로 다른 작업물이 연속하여 2개 이상 진입하는 공법에서 미리 예약하고자 할 때는 사용할 수 없습니다.  
+    - 1  
+    Prepare 1 register for Program Scheduled Execution. Only one program can be scheduled. Therefore, it cannot be used in production lines where more than one different workpiece enters consecutively and pre-scheduling is required.  
 
   
 
-- 프로그램 입력방식
+- Program input method
 
-    - 외부선택  
-    [**시스템 > 제어 파라미터 > 입출력 신호 설정 > 입력 신호 할당**]에서 “프로그램 선택 Bit”로 입력된 프로그램을 프로그램 예약 실행 레지스터에 등록합니다.
+    - External Selection  
+    Registers the program assigned as the “Program Select Bit” in [**System > Control Parameters > I/O Signal Settings > Input Signal Assignment**] into the Program Scheduled Execution Register.
 
         ![](../_assets/image4.png)
   
-        -	위 그림에서 프로그램 Strobe 입력신호를 할당하십시오.
-        -	외부에서 입력되는 프로그램 선택 신호를 Binary 또는 Discrete로 수신할지 선택하는 Binary/Discrete(OFF->Binary) 입력신호도 할당하여 수신방법에 따라 사용하십시오.
-        -	수신방법은 프로그램 Strobe 신호가 Low->High로 변경되면 Binary/Discrete(OFF->Binary)에 따라 프로그램 선택 Bit를 읽고 원하는 프로그램 번호를 생성합니다. 프로그램 선택 Bit 입력신호는 반드시 프로그램 Strobe 입력신호보다 200msec 먼저 활성화 시켜야 합니다.
-        -	외부선택 모드를 사용할 때는 [**시스템 > 사용자 환경**]에서 “프로그램 스트로브신호 사용”을 “유효”로 설정해야 합니다.
+        - Assign the program Strobe input signal in the figure above.
+        - Assign a Binary/Discrete (OFF->Binary) input signal to select whether to receive externally input program selection signals as Binary or Discrete, and use according to the receiving method.
+        - The reception method reads the Program Select Bit when the program Strobe signal changes from Low to High and generates the desired program number according to Binary/Discrete(OFF->Binary). The Program Select Bit input signal must be activated at least 200ms before the program Strobe input signal.
+        - When using the External Selection mode, set “Use Program Strobe Signal” to “Enabled” under [**System > User Preferences**].
 
-    - 내부설정  
-    입력 신호와 그에 해당하는 프로그램 번호를 미리 사용자가 지정해 두고 입력신호가 ON 되면 지정한 프로그램 번호를 레지스터에 등록합니다.
-        -	총 7개의 서로 다른 작업장치를 제공합니다.
-        -	“동일 프로그램 입력시 처리”메뉴는 내부설정일 때만 사용합니다.
-
-  
-
-- 동일 프로그램 입력 시 처리
-프로그램 입력방식이 “내부설정”에서 프로그램 예약 실행 레지스터에 프로그램 번호를 예약할 때 이미 레지스터에 동일 프로그램이 존재하는 경우에 예약 결정을 처리하는 기능입니다.
-
-    - 삭제  
-    레지스터에 예약된 프로그램 번호를 삭제하는 조건입니다. 레지스터에 예약된 동일한 프로그램 번호를 찾아서 삭제합니다. “예약된 프로그램(No:xxx) 삭제됩니다” 알림이 화면에 표시됩니다.
-
-    - 금지  
-    레지스터에 이미 동일한 프로그램이 예약되어 있으면 등록하지 않습니다.  “프로그램(No:xxx) 예약이 금지됩니다” 알림이 화면에 표시됩니다.
-
-    - 허용  
-    레지스터가 비어 있으면 등록합니다.
-
-
-- 입력신호  
-    - I/O보드에 장착된 입력커넥터의 각각의 포트에 대한 신호를 설정합니다.
-
-    - 입력신호 할당에서 외부기동과 외부정지 신호 할당이 안되어 있을 때 작업대 입력버튼을 누르면 외부기동이나 외부정지 명령으로도 사용할 수 있습니다.
-        -   외부기동 : 프로그램 번호 예약과 동시에 외부기동을 실행
-        -   외부정지 : 현재 실행되는 프로그램을 예약하면 외부정지 실행
+    - Internal Setting  
+    The user preassigns input signals and their corresponding program numbers, and when the input signal turns ON, the specified program number is registered in the register.
+        - Provides up to 7 different work devices.
+        - The “Handle duplicate program input” menu is only used when in Internal Setting mode.
 
   
 
-- 출력신호
-    - I/O보드에 장착된 출력커넥터의 각각의 포트에 대한 신호를 설정합니다.
-    - 출력신호에 램프가 연결된 경우 프로그램 번호가 레지스터에 예약되어 실행되기까지 램프에 다음의 변화가 발생합니다.
-        -	프로그램 번호가 예약되지 않은 경우 	→ 램프소등
-        -	프로그램 번호가 예약된 경우		→ 램프점멸
-        -	예약된 프로그램 번호가 실행중인 경우 	→ 램프점등
-        -	예약된 프로그램 번호가 실행완료 된 경우	→ 램프소등
+- Handling duplicate program inputs
+When the Program input method is set to “Internal Setting” and a program number identical to one already in the Program Scheduled Execution Register is input, this setting determines how to handle the duplicate registration.
+
+    - Delete  
+    Deletes the registered program number in the register. It searches for the identical program number in the register and deletes it. A notice “Reserved program (No:xxx) will be deleted” is displayed on the screen.
+
+    - Prohibit  
+    Does not register if an identical program is already reserved in the register. A notice “Program (No:xxx) reservation is prohibited” is displayed on the screen.
+
+    - Allow  
+    Registers if the register is empty.
+
+
+- Input signals
+    - Configure the signal for each port of the input connectors mounted on the I/O board.
+
+    - When external start and external stop signals are not assigned in Input Signal Assignment, pressing the workstation input button can be used as external start or external stop commands.
+        -   External start : execute the external start simultaneously with registering a program number.
+        -   External stop : executes external stop when scheduling the currently running program.
 
   
 
-- 프로그램
-해당 작업대의 작업 프로그램을 설정합니다.
-프로그램 번호가 할당되지 않으면 “예약 프로그램 번호가 할당되지 않았습니다”알림이 화면에 표시됩니다.
+- Output signals
+    - Configure the signal for each port of the output connectors mounted on the I/O board.
+    - When a lamp is connected to the output signal, the lamp changes as follows from the time the program number is scheduled in the register until it is executed.
+        - When the program number is not scheduled → Lamp off
+        - When the program number is scheduled → Lamp blinking
+        - When the scheduled program number is running → Lamp on
+        - When the scheduled program number has completed → Lamp off
+
+  
+
+- Program
+Set the operation program for the corresponding workstation.
+If a program number is not assigned, a notice “Reserved program number is not assigned” is displayed on the screen.
