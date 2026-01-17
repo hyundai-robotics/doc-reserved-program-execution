@@ -1,4 +1,4 @@
-# 4. Errors / Warnings
+﻿# 4. Errors / Warnings
 - Errors  
     |Category|Details|
     |-|-|

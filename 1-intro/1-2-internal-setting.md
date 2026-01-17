@@ -1,4 +1,4 @@
-# 1.2 Internal Setting Method
+﻿# 1.2 Internal Setting Method
 
 If a program has been assigned for each work target, pressing the button on the workbench registers the corresponding program number in the Program Scheduled Execution Register, and programs are executed in that order when started.
 

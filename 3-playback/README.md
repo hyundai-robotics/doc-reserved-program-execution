@@ -1,4 +1,4 @@
-# 3. Playback
+﻿# 3. Playback
 - Execute from step 0  
 When the start button is pressed, the robot controller executes the first program in the Program Scheduled Execution Register. After executing until the program END, it executes the next program registered in the Program Scheduled Execution Register.
 
