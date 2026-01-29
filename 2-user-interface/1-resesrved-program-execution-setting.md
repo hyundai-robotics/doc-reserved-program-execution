@@ -3,7 +3,9 @@ The environment for the Program Scheduled Execution feature is configured under 
 
 ![](../_assets/image3.png)
 
-## Applied register count  
+<br>
+
+### Applied register count  
 - Disabled  
 The Program Scheduled Execution feature is not used.
 
@@ -13,9 +15,9 @@ Prepare 20 registers for the Program Scheduled Execution. If you try to schedule
 - 1  
 Prepare 1 register for Program Scheduled Execution. Only one program can be scheduled. Therefore, it cannot be used in production lines where more than one different workpiece enters consecutively and pre-scheduling is required.  
 
-  
+<br>
 
-## Program input method  
+### Program input method  
 - External Selection  
 Registers the program assigned as the "Program Select Bit" in `System > Control Parameters > I/O Signal Settings > Input Signal Assignment` into the Program Scheduled Execution Register.
 
@@ -33,7 +35,7 @@ The user preassigns input signals and their corresponding program numbers, and w
     - The workstation's input signals can also be used as external start and stop buttons (see the ["Input Signals"](#input-signals) section).
   
 
-## Handling duplicate program inputs  
+### Handling duplicate program inputs  
 When the Program input method is set to "Internal Setting" and a program number identical to one already in the Program Scheduled Execution Register is input, this setting determines how to handle the duplicate registration.
 
 - Delete  
@@ -46,7 +48,7 @@ Does not register if an identical program is already reserved in the register. A
 Registers if the register is empty.
 
 
-## Input signals  
+### Input signals  
 - Configure the signal for each port of the input connectors mounted on the I/O board.
 
 - When external start and external stop signals are not assigned in Input Signal Assignment, pressing the workstation input button can be used as external start or external stop commands.
@@ -55,7 +57,7 @@ Registers if the register is empty.
 
   
 
-## Output signals  
+### Output signals  
 - Configure the signal for each port of the output connectors mounted on the I/O board.
 - When a lamp is connected to the output signal, the lamp changes as follows from the time the program number is scheduled in the register until it is executed.
     - When the program number is not scheduled → Lamp off
@@ -65,6 +67,6 @@ Registers if the register is empty.
 
   
 
-## Program  
+### Program  
 Set the operation program for the corresponding workstation.
 If a program number is not assigned, a notice "Reserved program number is not assigned" is displayed on the screen.

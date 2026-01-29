@@ -9,7 +9,7 @@ The Program Scheduled Execution function allows you to schedule programs that wi
 
 Hyundai robot controllers support two methods of Program Scheduled Execution. Please understand the characteristics of each method and use them according to your desired operating environment.
 
-[__SOURCE](1-intro/1-1-external-selection.md)
+[__SOURCE](1-intro/1-external-selection.md)
 # 1.1 External Selection Method
 
 When different workpieces enter consecutively along a conveyor, you can select the program for each workpiece via an external program selection method and register it in the Program Scheduled Execution Register so the scheduled programs are executed in order.
@@ -18,7 +18,7 @@ When different workpieces enter consecutively along a conveyor, you can select t
 
 The figure above shows that while program A is running, programs B and C have been registered in the Program Scheduled Execution Register in order, and program D has not yet been registered.
 
-[__SOURCE](1-intro/1-2-internal-setting.md)
+[__SOURCE](1-intro/2-internal-setting.md)
 # 1.2 Internal Setting Method
 
 If a program has been assigned for each work target, pressing the button on the workbench registers the corresponding program number in the Program Scheduled Execution Register, and programs are executed in that order when started.
@@ -33,13 +33,15 @@ When the operator prepares workpiece 1 and presses the workstation input button 
 [__SOURCE](2-user-interface/README.md)
 # 2. System Settings
 
-[__SOURCE](2-user-interface/2-1-resesrved-program-execution-setting.md)
+[__SOURCE](2-user-interface/1-resesrved-program-execution-setting.md)
 # 2.1 Program Scheduled Execution Preferences
 The environment for the Program Scheduled Execution feature is configured under `System > Control Parameters > Program Scheduled Execution`.
 
 ![](../_assets/image3.png)
 
-## Applied register count  
+<br>
+
+### Applied register count  
 - Disabled  
 The Program Scheduled Execution feature is not used.
 
@@ -49,9 +51,9 @@ Prepare 20 registers for the Program Scheduled Execution. If you try to schedule
 - 1  
 Prepare 1 register for Program Scheduled Execution. Only one program can be scheduled. Therefore, it cannot be used in production lines where more than one different workpiece enters consecutively and pre-scheduling is required.  
 
-  
+<br>
 
-## Program input method  
+### Program input method  
 - External Selection  
 Registers the program assigned as the "Program Select Bit" in `System > Control Parameters > I/O Signal Settings > Input Signal Assignment` into the Program Scheduled Execution Register.
 
@@ -69,7 +71,7 @@ The user preassigns input signals and their corresponding program numbers, and w
     - The workstation's input signals can also be used as external start and stop buttons (see the ["Input Signals"](#input-signals) section).
   
 
-## Handling duplicate program inputs  
+### Handling duplicate program inputs  
 When the Program input method is set to "Internal Setting" and a program number identical to one already in the Program Scheduled Execution Register is input, this setting determines how to handle the duplicate registration.
 
 - Delete  
@@ -82,7 +84,7 @@ Does not register if an identical program is already reserved in the register. A
 Registers if the register is empty.
 
 
-## Input signals  
+### Input signals  
 - Configure the signal for each port of the input connectors mounted on the I/O board.
 
 - When external start and external stop signals are not assigned in Input Signal Assignment, pressing the workstation input button can be used as external start or external stop commands.
@@ -91,7 +93,7 @@ Registers if the register is empty.
 
   
 
-## Output signals  
+### Output signals  
 - Configure the signal for each port of the output connectors mounted on the I/O board.
 - When a lamp is connected to the output signal, the lamp changes as follows from the time the program number is scheduled in the register until it is executed.
     - When the program number is not scheduled → Lamp off
@@ -101,11 +103,11 @@ Registers if the register is empty.
 
   
 
-## Program  
+### Program  
 Set the operation program for the corresponding workstation.
 If a program number is not assigned, a notice "Reserved program number is not assigned" is displayed on the screen.
 
-[__SOURCE](2-user-interface/2-2-program-execution-register.md)
+[__SOURCE](2-user-interface/2-program-execution-register.md)
 # 2.2 Program Scheduled Execution Register
 
 The Program Scheduled Execution Register allows you to confirm, change, insert, or delete scheduled programs. This can be used when the Applied register count in Program Scheduled Execution settings is set to '20' or '1'. Select [**Program Schedule**] from the panel selection window.
@@ -126,7 +128,7 @@ Position on the reserved program number you want to delete and click the "Delete
 [**Note**]
 - Cannot be executed in Remote Mode.
 
-[__SOURCE](2-user-interface/2-3-program-register-status.md)
+[__SOURCE](2-user-interface/3-program-register-status.md)
 # 2.3 External Check of Program Schedule Status
 
 - External Selection  
