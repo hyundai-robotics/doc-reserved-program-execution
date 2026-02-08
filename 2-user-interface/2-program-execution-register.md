@@ -1,6 +1,6 @@
 ﻿# 2.2 Program Scheduled Execution Register
 
-The Program Scheduled Execution Register allows you to confirm, change, insert, or delete scheduled programs. This can be used when the Applied register count in Program Scheduled Execution settings is set to '20' or '1'. Select [**Program Schedule**] from the panel selection window.
+The Program Scheduled Execution Register allows you to confirm, change, insert, or delete scheduled programs. This can be used when the Applied register count in Program Scheduled Execution settings is set to '20' or '1'. Select `[Program Schedule]` from the panel selection window.
 
 ![](../_assets/image5.png)
 
@@ -15,5 +15,5 @@ Position on the reserved program number you want to delete and click the "Delete
 
   
 
-[**Note**]
+`[Note]`
 - Cannot be executed in Remote Mode.
