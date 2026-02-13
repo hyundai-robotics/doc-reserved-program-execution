@@ -1,6 +1,7 @@
 ﻿# Table of contents
 
 * [${cont_model} Controller Functional Manual - Program Scheduled Execution](README.md)
+* [Precautions](0-about-this-manual/precautions.md)
 * [1. Overview](1-intro/README.md)
   * [1.1 External Selection Method](1-intro/1-external-selection.md)
   * [1.2 Internal Setting Method](1-intro/2-internal-setting.md)
