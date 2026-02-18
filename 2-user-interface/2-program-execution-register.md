@@ -1,19 +1,19 @@
-﻿# 2.2 Program Scheduled Execution Register
+# 2.2 程序计划执行寄存器
 
-The Program Scheduled Execution Register allows you to confirm, change, insert, or delete scheduled programs. This can be used when the Applied register count in Program Scheduled Execution settings is set to '20' or '1'. Select `[Program Schedule]` from the panel selection window.
+程序计划执行寄存器允许您确认、修改、插入或删除计划程序。这可在程序计划执行设置中的应用寄存器计数设置为“20”或“1”时使用。从面板选择窗口选择 `[Program Schedule]`。
 
 ![](../_assets/image5.png)
 
-- Edit  
-To change the scheduled program at the current position, click the "Edit" button and enter the desired program number.
+- 编辑  
+要更改当前位置信息中的计划程序，请点击“编辑”按钮并输入所需的程序编号。
 
-- Insert  
-Click the "Insert" button and enter the desired reserved program number to reserve a new program after the current position.
+- 插入  
+点击“插入”按钮并输入所需的保留程序编号，以在当前位之后保留一个新程序。
 
-- Delete  
-Position on the reserved program number you want to delete and click the "Delete" button to remove the program number from the register.
+- 删除  
+定位到您想要删除的保留程序编号，然后点击“删除”按钮以从寄存器中移除该程序编号。
 
   
 
-`[Note]`
-- Cannot be executed in Remote Mode.
+`[注意]`
+- 在远程模式下无法执行。

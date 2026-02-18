@@ -1,14 +1,14 @@
-﻿# 2.3 External Check of Program Schedule Status
+﻿# 2.3 程序调度状态的外部检查
 
-- External Selection  
-Outputs the "Program Echo Bit" signal synchronized with the "Program ACK" signal for externally input reserved program numbers. Assign the signal under `System > Control Parameters > I/O Signal Settings > Output Signal Assignment`.
+- 外部选择  
+输出与外部输入的保留程序号同步的“程序回显位”信号，该信号与“程序确认”信号同步。在 `System > Control Parameters > I/O Signal Settings > Output Signal Assignment` 下分配信号。
  ![](../_assets/image6.png)
 
-    - Outputs the selected program number to the signal assigned to the "Program Echo Bit"
-    - Outputs the signal assigned to "Program ACK" for 200ms
+    - 将选定的程序号输出到分配给“程序回显位”的信号
+    - 将分配给“程序确认”的信号输出200毫秒
 
   
 
-- Internal Setting  
-In `System > Control Parameters > Program Scheduled Execution`, a blinking signal is output to the output signal assigned to the reserved program.
-    - For the method of checking output signals, refer to the description of "Output signals" in section 2.1.
+- 内部设置  
+在 `System > Control Parameters > Program Scheduled Execution` 中，输出信号分配给保留程序的输出信号闪烁。
+    - 有关输出信号的检查方法，请参阅第2.1节中“输出信号”的说明。

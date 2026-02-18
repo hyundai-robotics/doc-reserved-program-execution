@@ -1,10 +1,10 @@
-﻿# 3. Playback
-- Execute from step 0  
-When the start button is pressed, the robot controller executes the first program in the Program Scheduled Execution Register. After executing until the program END, it executes the next program registered in the Program Scheduled Execution Register.
+﻿# 3. 播放
+- 从步骤 0 执行  
+当按下启动按钮时，机器人控制器执行程序计划执行寄存器中的第一个程序。在执行到程序结束后，它会执行程序计划执行寄存器中注册的下一个程序。
 
-- Execute from a mid step  
-When the start button is pressed, execution begins from the selected statement of the selected program. After completing the execution of this program, it executes the programs registered in the Program Scheduled Execution Register.
+- 从中间步骤执行  
+当按下启动按钮时，从选定程序的选定语句开始执行。在完成该程序的执行后，它会执行程序计划执行寄存器中注册的程序。
 
-- Execute when no scheduled program exists  
-If no programs are registered in the register, when pressing the start button, it will wait until a program is registered in the Program Scheduled Execution Register as shown in the figure below. When a program is registered, it executes it immediately.
+- 当没有计划程序存在时执行  
+如果寄存器中没有注册程序，当按下启动按钮时，它将等待，直到在程序计划执行寄存器中注册一个程序，如下图所示。当注册了一个程序时，它会立即执行。  
  ![](../_assets/image7.png)

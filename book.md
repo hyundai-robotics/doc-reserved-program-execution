@@ -1,180 +1,161 @@
 ﻿
-[__SOURCE](README.md)
-# ${cont_model} Controller Functional Manual - Program Scheduled Execution
-
-[__SOURCE](0-about-this-manual/precautions.md)
-# Precautions
-
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
-
 [__SOURCE](1-intro/README.md)
-# 1. Overview
+# 1. 概述
 
-The Program Scheduled Execution function allows you to schedule programs that will be executed by external input signals and run the scheduled programs in order.
+程序调度执行功能允许您调度将由外部输入信号执行的程序，并按顺序运行调度的程序。
 
-Hyundai robot controllers support two methods of Program Scheduled Execution. Please understand the characteristics of each method and use them according to your desired operating environment.
-
+现代机器人控制器支持两种程序调度执行方法。请了解每种方法的特点，并根据您的期望操作环境使用它们。
 [__SOURCE](1-intro/1-external-selection.md)
-# 1.1 External Selection Method
+# 1.1 外部选择方法
 
-When different workpieces enter consecutively along a conveyor, you can select the program for each workpiece via an external program selection method and register it in the Program Scheduled Execution Register so the scheduled programs are executed in order.
+当不同的工件沿着传送带连续进入时，您可以通过外部程序选择方法为每个工件选择程序，并将其注册在程序计划执行注册表中，以便按顺序执行计划程序。
 
 ![](../_assets/image1.png)
 
-The figure above shows that while program A is running, programs B and C have been registered in the Program Scheduled Execution Register in order, and program D has not yet been registered.
-
+上面的图示显示在程序 A 运行时，程序 B 和 C 已按顺序注册在程序计划执行注册表中，而程序 D 尚未注册。
 [__SOURCE](1-intro/2-internal-setting.md)
-# 1.2 Internal Setting Method
+# 1.2 内部设置方法
 
-If a program has been assigned for each work target, pressing the button on the workbench registers the corresponding program number in the Program Scheduled Execution Register, and programs are executed in that order when started.
-
+如果为每个工作目标分配了程序，按下工作台上的按钮会将相应的程序编号注册到程序调度执行寄存器中，并按该顺序执行程序。
 
 ![](../_assets/image2.png)
 
-If different workpieces are placed on three workstations as shown above, pressing the buttons on workstations 1, 2, and 3 registers programs 1, 2, and 3 respectively in the Program Scheduled Execution Register.
+如果在上面所示的三个工作站上放置了不同的工件，按下工作站 1、2 和 3 的按钮会分别将程序 1、2 和 3 注册到程序调度执行寄存器中。
 
-When the operator prepares workpiece 1 and presses the workstation input button and then the start button on the operation panel, program 1 begins execution. While program 1 is running, if the operator prepares workpiece 2 and presses the workstation input button, program 2 waits in the Program Scheduled Register. After program 1 finishes, program 2 that was waiting in the Program Scheduled Register executes. If the input button for workstation 2 is pressed after program 1 has already completed, the start button must be pressed again.
-
+当操作员准备工件 1 并按下工作站输入按钮，然后按下操作面板上的开始按钮时，程序 1 开始执行。在程序 1 运行时，如果操作员准备工件 2 并按下工作站输入按钮，程序 2 将在程序调度寄存器中等待。在程序 1 完成后，等待在程序调度寄存器中的程序 2 执行。如果在程序 1 已完成后按下工作站 2 的输入按钮，则必须再次按下开始按钮。
 [__SOURCE](2-user-interface/README.md)
-# 2. System Settings
-
+# 2. 系统设置
 [__SOURCE](2-user-interface/1-resesrved-program-execution-setting.md)
-# 2.1 Program Scheduled Execution Preferences
-The environment for the Program Scheduled Execution feature is configured under `System > Control Parameters > Program Scheduled Execution`.
+# 2.1 程序定时执行偏好设置  
+程序定时执行功能的环境在 `System > Control Parameters > Program Scheduled Execution` 下进行配置。
 
 ![](../_assets/image3.png)
 
 <br>
 
-### Applied register count  
-- Disabled  
-The Program Scheduled Execution feature is not used.
+### 应用寄存器数量  
+- 禁用  
+程序定时执行功能未使用。
 
 - 20  
-Prepare 20 registers for the Program Scheduled Execution. If you try to schedule more than 20 programs, an E1047 error will occur.
+为程序定时执行准备20个寄存器。如果尝试调度超过20个程序，将出现E1047错误。
 
 - 1  
-Prepare 1 register for Program Scheduled Execution. Only one program can be scheduled. Therefore, it cannot be used in production lines where more than one different workpiece enters consecutively and pre-scheduling is required.  
+为程序定时执行准备1个寄存器。只能调度一个程序。因此，它不能用于连续进入多个不同工件并需要预调度的生产线。  
 
 <br>
 
-### Program input method  
-- External Selection  
-Registers the program assigned as the "Program Select Bit" in `System > Control Parameters > I/O Signal Settings > Input Signal Assignment` into the Program Scheduled Execution Register.
+### 程序输入方法  
+- 外部选择  
+将 `System > Control Parameters > I/O Signal Settings > Input Signal Assignment` 中指定为“程序选择位”的程序注册到程序定时执行寄存器。
 
     ![](../_assets/image4.png)
 
-    - Assign the program Strobe input signal in the figure above.
-    - Assign a Binary/Discrete (OFF->Binary) input signal to select whether to receive externally input program selection signals as Binary or Discrete, and use according to the receiving method.
-    - The reception method reads the Program Select Bit when the program Strobe signal changes from Low to High and generates the desired program number according to Binary/Discrete(OFF->Binary). The Program Select Bit input signal must be activated at least 200ms before the program Strobe input signal.
-    - When using the External Selection mode, set "Use Program Strobe Signal" to "Enabled" under `System > User Preferences`.
+    - 在上图中分配程序脉冲输入信号。
+    - 分配一个二进制/离散（OFF->二进制）输入信号，以选择是否将外部输入程序选择信号接收为二进制或离散，并根据接收方式进行使用。
+    - 接收方法在程序脉冲信号从低变为高时读取程序选择位，并根据二进制/离散（OFF->二进制）生成所需程序编号。程序选择位输入信号必须在程序脉冲输入信号之前激活至少200ms。
+    - 使用外部选择模式时，在 `System > User Preferences` 下将“使用程序脉冲信号”设置为“启用”。
 
-- Internal Setting  
-The user preassigns input signals and their corresponding program numbers, and when the input signal turns ON, the specified program number is registered in the register.
-    - Provides up to 7 different work devices.
-    - The "Handle duplicate program input" menu is only used when in Internal Setting mode.
-    - The workstation's input signals can also be used as external start and stop buttons (see the ["Input Signals"](#input-signals) section).
+- 内部设置  
+用户预先分配输入信号及其相应的程序编号，当输入信号变为ON时，指定的程序编号将注册到寄存器中。
+    - 提供最多7个不同的工作设备。
+    - “处理重复程序输入”菜单仅在内部设置模式下使用。
+    - 工作站的输入信号也可以用作外部启动和停止按钮（请参见["输入信号"](#input-signals)部分）。
   
 
-### Handling duplicate program inputs  
-When the Program input method is set to "Internal Setting" and a program number identical to one already in the Program Scheduled Execution Register is input, this setting determines how to handle the duplicate registration.
+### 处理重复程序输入  
+当程序输入方法设置为“内部设置”且输入的程序编号与程序定时执行寄存器中已存在的程序编号相同时，此设置决定如何处理重复注册。
 
-- Delete  
-Deletes the registered program number in the register. It searches for the identical program number in the register and deletes it. A notice "Reserved program (No:xxx) will be deleted" is displayed on the screen.
+- 删除  
+删除寄存器中已注册的程序编号。它会在寄存器中搜索相同的程序编号并删除它。屏幕上会显示通知“保留的程序（编号：xxx）将被删除”。
 
-- Prohibit  
-Does not register if an identical program is already reserved in the register. A notice "Program (No:xxx) reservation is prohibited" is displayed on the screen.
+- 禁止  
+如果寄存器中已预定相同的程序，则不进行注册。屏幕上会显示通知“程序（编号：xxx）预定被禁止”。
 
-- Allow  
-Registers if the register is empty.
+- 允许  
+如果寄存器为空，则注册。
+### 输入信号  
+- 为安装在 I/O 板上的输入连接器的每个端口配置信号。
 
-
-### Input signals  
-- Configure the signal for each port of the input connectors mounted on the I/O board.
-
-- When external start and external stop signals are not assigned in Input Signal Assignment, pressing the workstation input button can be used as external start or external stop commands.
-    -   External start : execute the external start simultaneously with registering a program number.
-    -   External stop : executes external stop when scheduling the currently running program.
-
-  
-
-### Output signals  
-- Configure the signal for each port of the output connectors mounted on the I/O board.
-- When a lamp is connected to the output signal, the lamp changes as follows from the time the program number is scheduled in the register until it is executed.
-    - When the program number is not scheduled → Lamp off
-    - When the program number is scheduled → Lamp blinking
-    - When the scheduled program number is running → Lamp on
-    - When the scheduled program number has completed → Lamp off
+- 当在输入信号分配中未分配外部启动和外部停止信号时，按下工作站输入按钮可用作外部启动或外部停止命令。
+    - 外部启动：在注册程序编号的同时执行外部启动。
+    - 外部停止：在调度当前运行的程序时执行外部停止。
 
   
 
-### Program  
-Set the operation program for the corresponding workstation.
-If a program number is not assigned, a notice "Reserved program number is not assigned" is displayed on the screen.
+### 输出信号  
+- 为安装在 I/O 板上的输出连接器的每个端口配置信号。
+- 当灯连接到输出信号时，从程序编号在注册中调度的时间到其执行的时间，灯的变化如下：
+    - 当程序编号未调度 → 灯熄灭
+    - 当程序编号被调度 → 灯闪烁
+    - 当调度的程序编号正在运行 → 灯亮
+    - 当调度的程序编号已完成 → 灯熄灭
 
+  
+
+### 程序  
+为相应工作站设置操作程序。
+如果未分配程序编号，屏幕上将显示通知“未分配保留的程序编号”。
 [__SOURCE](2-user-interface/2-program-execution-register.md)
-# 2.2 Program Scheduled Execution Register
+# 2.2 程序计划执行寄存器
 
-The Program Scheduled Execution Register allows you to confirm, change, insert, or delete scheduled programs. This can be used when the Applied register count in Program Scheduled Execution settings is set to '20' or '1'. Select `[Program Schedule]` from the panel selection window.
+程序计划执行寄存器允许您确认、修改、插入或删除计划程序。这可在程序计划执行设置中的应用寄存器计数设置为“20”或“1”时使用。从面板选择窗口选择 `[Program Schedule]`。
 
 ![](../_assets/image5.png)
 
-- Edit  
-To change the scheduled program at the current position, click the "Edit" button and enter the desired program number.
+- 编辑  
+要更改当前位置信息中的计划程序，请点击“编辑”按钮并输入所需的程序编号。
 
-- Insert  
-Click the "Insert" button and enter the desired reserved program number to reserve a new program after the current position.
+- 插入  
+点击“插入”按钮并输入所需的保留程序编号，以在当前位之后保留一个新程序。
 
-- Delete  
-Position on the reserved program number you want to delete and click the "Delete" button to remove the program number from the register.
+- 删除  
+定位到您想要删除的保留程序编号，然后点击“删除”按钮以从寄存器中移除该程序编号。
 
   
 
-`[Note]`
-- Cannot be executed in Remote Mode.
-
+`[注意]`
+- 在远程模式下无法执行。
 [__SOURCE](2-user-interface/3-program-register-status.md)
-# 2.3 External Check of Program Schedule Status
+# 2.3 程序调度状态的外部检查
 
-- External Selection  
-Outputs the "Program Echo Bit" signal synchronized with the "Program ACK" signal for externally input reserved program numbers. Assign the signal under `System > Control Parameters > I/O Signal Settings > Output Signal Assignment`.
+- 外部选择  
+输出与外部输入的保留程序号同步的“程序回显位”信号，该信号与“程序确认”信号同步。在 `System > Control Parameters > I/O Signal Settings > Output Signal Assignment` 下分配信号。
  ![](../_assets/image6.png)
 
-    - Outputs the selected program number to the signal assigned to the "Program Echo Bit"
-    - Outputs the signal assigned to "Program ACK" for 200ms
+    - 将选定的程序号输出到分配给“程序回显位”的信号
+    - 将分配给“程序确认”的信号输出200毫秒
 
   
 
-- Internal Setting  
-In `System > Control Parameters > Program Scheduled Execution`, a blinking signal is output to the output signal assigned to the reserved program.
-    - For the method of checking output signals, refer to the description of "Output signals" in section 2.1.
-
+- 内部设置  
+在 `System > Control Parameters > Program Scheduled Execution` 中，输出信号分配给保留程序的输出信号闪烁。
+    - 有关输出信号的检查方法，请参阅第2.1节中“输出信号”的说明。
 [__SOURCE](3-playback/README.md)
-# 3. Playback
-- Execute from step 0  
-When the start button is pressed, the robot controller executes the first program in the Program Scheduled Execution Register. After executing until the program END, it executes the next program registered in the Program Scheduled Execution Register.
+# 3. 播放
+- 从步骤 0 执行  
+当按下启动按钮时，机器人控制器执行程序计划执行寄存器中的第一个程序。在执行到程序结束后，它会执行程序计划执行寄存器中注册的下一个程序。
 
-- Execute from a mid step  
-When the start button is pressed, execution begins from the selected statement of the selected program. After completing the execution of this program, it executes the programs registered in the Program Scheduled Execution Register.
+- 从中间步骤执行  
+当按下启动按钮时，从选定程序的选定语句开始执行。在完成该程序的执行后，它会执行程序计划执行寄存器中注册的程序。
 
-- Execute when no scheduled program exists  
-If no programs are registered in the register, when pressing the start button, it will wait until a program is registered in the Program Scheduled Execution Register as shown in the figure below. When a program is registered, it executes it immediately.
+- 当没有计划程序存在时执行  
+如果寄存器中没有注册程序，当按下启动按钮时，它将等待，直到在程序计划执行寄存器中注册一个程序，如下图所示。当注册了一个程序时，它会立即执行。  
  ![](../_assets/image7.png)
-
 [__SOURCE](4-error-warning/README.md)
-# 4. Errors / Warnings
-- Errors  
-    |Category|Details|
+# 4. 错误 / 警告
+- 错误  
+    |类别|详情|
     |-|-|
-    |Message|E1047 The register exceeded 20|
-    |Cause|Attempting to reserve more than the configured number of 20 under Settings/Control Parameters/Program Scheduled Execution.|
-    |Action|Check the reservation status in Service/Monitoring/Program Scheduled Execution.|  
+    |消息|E1047 寄存器超过 20|
+    |原因|尝试在设置/控制参数/程序调度执行下保留超过配置的 20。|
+    |行动|检查服务/监控/程序调度执行中的保留状态。|  
 
   
 
-- Warnings
-    |Category|Details|
+- 警告
+    |类别|详情|
     |-|-|
-    |Message|W28302 Program reservation registration is available only in Remote Mode.|
-    |Cause|The program reservation registration mode is not Remote Mode.|
-    |Action|Check the operation mode.|  
+    |消息|W28302 程序保留注册仅在远程模式下可用。|
+    |原因|程序保留注册模式不是远程模式。|
+    |行动|检查操作模式。|

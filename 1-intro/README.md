@@ -1,5 +1,5 @@
-﻿# 1. Overview
+﻿# 1. 概述
 
-The Program Scheduled Execution function allows you to schedule programs that will be executed by external input signals and run the scheduled programs in order.
+程序调度执行功能允许您调度将由外部输入信号执行的程序，并按顺序运行调度的程序。
 
-Hyundai robot controllers support two methods of Program Scheduled Execution. Please understand the characteristics of each method and use them according to your desired operating environment.
+现代机器人控制器支持两种程序调度执行方法。请了解每种方法的特点，并根据您的期望操作环境使用它们。

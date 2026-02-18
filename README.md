@@ -1,1 +1,1 @@
-﻿# ${cont_model} Controller Functional Manual - Program Scheduled Execution
+# ${cont_model} 控制器功能手册 - 程序定时执行
