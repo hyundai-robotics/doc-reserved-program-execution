@@ -1,7 +1,7 @@
 ﻿# Table of contents
 
-          * [${cont_model} 控制器功能手册 - 程序定时执行](README.md)
-          * [注意事项](0-about-this-manual/precautions.md)
+* [${cont_model} 控制器功能手册 - 程序定时执行](README.md)
+* [注意事项](0-about-this-manual/precautions.md)
 * [1. 概述](1-intro/README.md)
   * [1.1 外部选择方法](1-intro/1-external-selection.md)
   * [1.2 内部设置方法](1-intro/2-internal-setting.md)
