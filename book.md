@@ -5,7 +5,7 @@
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
+{% include file="en/precautions.md" %}
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
@@ -73,7 +73,7 @@ Registers the program assigned as the "Program Select Bit" in `System > Control 
 The user preassigns input signals and their corresponding program numbers, and when the input signal turns ON, the specified program number is registered in the register.
     - Provides up to 7 different work devices.
     - The "Handle duplicate program input" menu is only used when in Internal Setting mode.
-    - The workstation's input signals can also be used as external start and stop buttons (see the ["Input Signals"](#input-signals) section).
+    - The workstation's input signals can also be used as external start and stop buttons (see the **Input signals** section below).
   
 
 ### Handling duplicate program inputs  

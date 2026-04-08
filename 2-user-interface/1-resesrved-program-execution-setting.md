@@ -32,7 +32,7 @@ Registers the program assigned as the "Program Select Bit" in `System > Control 
 The user preassigns input signals and their corresponding program numbers, and when the input signal turns ON, the specified program number is registered in the register.
     - Provides up to 7 different work devices.
     - The "Handle duplicate program input" menu is only used when in Internal Setting mode.
-    - The workstation's input signals can also be used as external start and stop buttons (see the ["Input Signals"](#input-signals) section).
+    - The workstation's input signals can also be used as external start and stop buttons (see the **Input signals** section below).
   
 
 ### Handling duplicate program inputs  
