@@ -2,6 +2,7 @@
 
 - External Selection  
 Outputs the "Program Echo Bit" signal synchronized with the "Program ACK" signal for externally input reserved program numbers. Assign the signal under `System > Control Parameters > I/O Signal Settings > Output Signal Assignment`.
+
  ![](../_assets/image6.png)
 
     - Outputs the selected program number to the signal assigned to the "Program Echo Bit"

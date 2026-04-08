@@ -7,4 +7,5 @@ When the start button is pressed, execution begins from the selected statement o
 
 - Execute when no scheduled program exists  
 If no programs are registered in the register, when pressing the start button, it will wait until a program is registered in the Program Scheduled Execution Register as shown in the figure below. When a program is registered, it executes it immediately.
+
  ![](../_assets/image7.png)
