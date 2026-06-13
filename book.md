@@ -2,10 +2,18 @@
 [__SOURCE](README.md)
 # ${cont_model} Controller Functional Manual - Program Scheduled Execution
 
+[__SOURCE](0-about-this-manual/README.md)
+# About the Manual
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
 {% include file="en/precautions.md" %}
+
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# Safety Cautions
+
+{% include file="en/safety-notice.md" %}
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
@@ -138,6 +146,7 @@ Position on the reserved program number you want to delete and click the "Delete
 
 - External Selection  
 Outputs the "Program Echo Bit" signal synchronized with the "Program ACK" signal for externally input reserved program numbers. Assign the signal under `System > Control Parameters > I/O Signal Settings > Output Signal Assignment`.
+
  ![](../_assets/image6.png)
 
     - Outputs the selected program number to the signal assigned to the "Program Echo Bit"
@@ -159,6 +168,7 @@ When the start button is pressed, execution begins from the selected statement o
 
 - Execute when no scheduled program exists  
 If no programs are registered in the register, when pressing the start button, it will wait until a program is registered in the Program Scheduled Execution Register as shown in the figure below. When a program is registered, it executes it immediately.
+
  ![](../_assets/image7.png)
 
 [__SOURCE](4-error-warning/README.md)
