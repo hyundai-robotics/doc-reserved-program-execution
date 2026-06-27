@@ -1,16 +1,16 @@
-﻿# 4. Errors / Warnings
-- Errors  
-    |Category|Details|
+﻿# 4. 错误 / 警告
+- 错误  
+    |类别|详细信息|
     |-|-|
-    |Message|E1047 The register exceeded 20|
-    |Cause|Attempting to reserve more than the configured number of 20 under Settings/Control Parameters/Program Scheduled Execution.|
-    |Action|Check the reservation status in Service/Monitoring/Program Scheduled Execution.|  
+    |消息|E1047 寄存器超过 20|
+    |原因|尝试在设置/控制参数/程序计划执行下保留超过配置的 20 个。|
+    |动作|检查服务/监控/程序计划执行中的保留状态。|  
 
   
 
-- Warnings
-    |Category|Details|
+- 警告
+    |类别|详细信息|
     |-|-|
-    |Message|W28302 Program reservation registration is available only in Remote Mode.|
-    |Cause|The program reservation registration mode is not Remote Mode.|
-    |Action|Check the operation mode.|  
+    |消息|W28302 程序保留注册仅在远程模式下可用。|
+    |原因|程序保留注册模式不是远程模式。|
+    |动作|检查操作模式。|  

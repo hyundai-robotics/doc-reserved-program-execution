@@ -1,10 +1,9 @@
-﻿# 1.2 Internal Setting Method
+﻿# 1.2 内部设置方法
 
-If a program has been assigned for each work target, pressing the button on the workbench registers the corresponding program number in the Program Scheduled Execution Register, and programs are executed in that order when started.
-
+如果为每个工作目标分配了程序，按下工作台上的按钮会在程序计划执行寄存器中注册相应的程序编号，并按照该顺序执行程序。
 
 ![](../_assets/image2.png)
 
-If different workpieces are placed on three workstations as shown above, pressing the buttons on workstations 1, 2, and 3 registers programs 1, 2, and 3 respectively in the Program Scheduled Execution Register.
+如果在如上所示的三个工作站上放置了不同的工件，按下工作站 1、2 和 3 上的按钮分别会在程序计划执行寄存器中注册程序 1、2 和 3。
 
-When the operator prepares workpiece 1 and presses the workstation input button and then the start button on the operation panel, program 1 begins execution. While program 1 is running, if the operator prepares workpiece 2 and presses the workstation input button, program 2 waits in the Program Scheduled Register. After program 1 finishes, program 2 that was waiting in the Program Scheduled Register executes. If the input button for workstation 2 is pressed after program 1 has already completed, the start button must be pressed again.
+当操作员准备工件 1 并按下工作站输入按钮，然后再按操作面板上的启动按钮时，程序 1 开始执行。当程序 1 正在运行时，如果操作员准备工件 2 并按下工作站输入按钮，程序 2 将在程序计划寄存器中等待。在程序 1 完成后，等待在程序计划寄存器中的程序 2 执行。如果在程序 1 已经完成后按下工作站 2 的输入按钮，必须再次按下启动按钮。

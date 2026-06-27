@@ -1,7 +1,7 @@
-﻿# 1.1 External Selection Method
+# 1.1 外部选择方法
 
-When different workpieces enter consecutively along a conveyor, you can select the program for each workpiece via an external program selection method and register it in the Program Scheduled Execution Register so the scheduled programs are executed in order.
+当不同的工件连续沿着输送机进入时，您可以通过外部程序选择方法选择每个工件的程序，并将其注册到程序计划执行注册表中，以便按顺序执行计划程序。
 
 ![](../_assets/image1.png)
 
-The figure above shows that while program A is running, programs B and C have been registered in the Program Scheduled Execution Register in order, and program D has not yet been registered.
+上图显示，当程序 A 正在运行时，程序 B 和 C 已按顺序注册到程序计划执行注册表中，而程序 D 尚未注册。

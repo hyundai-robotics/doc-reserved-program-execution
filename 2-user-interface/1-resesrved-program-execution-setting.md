@@ -1,72 +1,71 @@
-﻿# 2.1 Program Scheduled Execution Preferences
-The environment for the Program Scheduled Execution feature is configured under `System > Control Parameters > Program Scheduled Execution`.
+# 2.1 程序调度执行偏好
+程序调度执行功能的环境配置在 `System > Control Parameters > Program Scheduled Execution` 下。
 
 ![](../_assets/image3.png)
 
 <br>
 
-### Applied register count  
-- Disabled  
-The Program Scheduled Execution feature is not used.
+### 应用寄存器计数  
+- 禁用  
+不使用程序调度执行功能。
 
 - 20  
-Prepare 20 registers for the Program Scheduled Execution. If you try to schedule more than 20 programs, an E1047 error will occur.
+为程序调度执行准备20个寄存器。如果您尝试调度超过20个程序，将发生E1047错误。
 
 - 1  
-Prepare 1 register for Program Scheduled Execution. Only one program can be scheduled. Therefore, it cannot be used in production lines where more than one different workpiece enters consecutively and pre-scheduling is required.  
+为程序调度执行准备1个寄存器。只能调度一个程序。因此，它不能用于需要预调度的多个不同工件连续进入的生产线。  
 
 <br>
 
-### Program input method  
-- External Selection  
-Registers the program assigned as the "Program Select Bit" in `System > Control Parameters > I/O Signal Settings > Input Signal Assignment` into the Program Scheduled Execution Register.
+### 程序输入方式  
+- 外部选择  
+将 `System > Control Parameters > I/O Signal Settings > Input Signal Assignment` 中设置为“程序选择位”的程序注册到程序调度执行寄存器中。
 
     ![](../_assets/image4.png)
 
-    - Assign the program Strobe input signal in the figure above.
-    - Assign a Binary/Discrete (OFF->Binary) input signal to select whether to receive externally input program selection signals as Binary or Discrete, and use according to the receiving method.
-    - The reception method reads the Program Select Bit when the program Strobe signal changes from Low to High and generates the desired program number according to Binary/Discrete(OFF->Binary). The Program Select Bit input signal must be activated at least 200ms before the program Strobe input signal.
-    - When using the External Selection mode, set "Use Program Strobe Signal" to "Enabled" under `System > User Preferences`.
+    - 为上图中的程序闪烁输入信号分配。
+    - 分配一个二进制/离散（OFF->Binary）输入信号，从而选择是否将外部输入程序选择信号作为二进制或离散接收，并根据接收方式使用。
+    - 接收方式在程序闪烁信号从低到高变化时读取程序选择位，并根据二进制/离散（OFF->Binary）生成所需的程序编号。程序选择位输入信号必须在程序闪烁输入信号之前至少激活200毫秒。
+    - 使用外部选择模式时，请在 `System > User Preferences` 下将“使用程序闪烁信号”设置为“启用”。
 
-- Internal Setting  
-The user preassigns input signals and their corresponding program numbers, and when the input signal turns ON, the specified program number is registered in the register.
-    - Provides up to 7 different work devices.
-    - The "Handle duplicate program input" menu is only used when in Internal Setting mode.
-    - The workstation's input signals can also be used as external start and stop buttons (see the **Input signals** section below).
+- 内部设置  
+用户预先分配输入信号及其对应的程序编号，当输入信号变为ON时，指定程序编号被注册到寄存器中。
+    - 提供多达7个不同的工作设备。
+    - “处理重复程序输入”菜单仅在内部设置模式下使用。
+    - 工作站的输入信号也可以作为外部启动和停止按钮使用（见下文的**输入信号**部分）。
   
 
-### Handling duplicate program inputs  
-When the Program input method is set to "Internal Setting" and a program number identical to one already in the Program Scheduled Execution Register is input, this setting determines how to handle the duplicate registration.
+### 处理重复程序输入  
+当程序输入方式设置为“内部设置”，并且输入的程序编号与程序调度执行寄存器中已经存在的程序编号相同时，该设置决定如何处理重复注册。
 
-- Delete  
-Deletes the registered program number in the register. It searches for the identical program number in the register and deletes it. A notice "Reserved program (No:xxx) will be deleted" is displayed on the screen.
+- 删除  
+删除寄存器中注册的程序编号。它会在寄存器中搜索相同的程序编号并将其删除。屏幕上会显示“保留程序（编号：xxx）将被删除”的通知。
 
-- Prohibit  
-Does not register if an identical program is already reserved in the register. A notice "Program (No:xxx) reservation is prohibited" is displayed on the screen.
+- 禁止  
+如果寄存器中已经保留相同的程序，则不注册。屏幕上会显示“程序（编号：xxx）保留被禁止”的通知。
 
-- Allow  
-Registers if the register is empty.
+- 允许  
+如果寄存器为空，则注册。
 
 
-### Input signals  
-- Configure the signal for each port of the input connectors mounted on the I/O board.
+### 输入信号  
+- 为安装在I/O板上的每个输入连接器的端口配置信号。
 
-- When external start and external stop signals are not assigned in Input Signal Assignment, pressing the workstation input button can be used as external start or external stop commands.
-    -   External start : execute the external start simultaneously with registering a program number.
-    -   External stop : executes external stop when scheduling the currently running program.
+- 当在输入信号分配中未分配外部启动和外部停止信号时，按下工作站输入按钮可以作为外部启动或外部停止命令使用。
+    - 外部启动：在注册程序编号的同时执行外部启动。
+    - 外部停止：在调度当前运行程序时执行外部停止。
+  
+
+### 输出信号  
+- 为安装在I/O板上的每个输出连接器的端口配置信号。
+- 当灯连接到输出信号时，从程序编号在寄存器中调度到执行期间，灯光变化如下：
+    - 当程序编号未调度时 → 灯熄灭
+    - 当程序编号已调度时 → 灯闪烁
+    - 当调度的程序编号正在运行时 → 灯亮
+    - 当调度的程序编号完成时 → 灯熄灭
 
   
 
-### Output signals  
-- Configure the signal for each port of the output connectors mounted on the I/O board.
-- When a lamp is connected to the output signal, the lamp changes as follows from the time the program number is scheduled in the register until it is executed.
-    - When the program number is not scheduled → Lamp off
-    - When the program number is scheduled → Lamp blinking
-    - When the scheduled program number is running → Lamp on
-    - When the scheduled program number has completed → Lamp off
-
-  
-
-### Program  
-Set the operation program for the corresponding workstation.
-If a program number is not assigned, a notice "Reserved program number is not assigned" is displayed on the screen.
+### 程序  
+为相应工作站设置操作程序。
+如果未分配程序编号，屏幕上会显示“未分配保留程序编号”的通知。
